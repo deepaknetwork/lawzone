@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/lawzone/static/css/main.17ee1ac7.css",
-    "main.js": "/lawzone/static/js/main.1f7276e0.js",
+    "main.css": "/lawzone/static/css/main.a1cee367.css",
+    "main.js": "/lawzone/static/js/main.989adc01.js",
     "index.html": "/lawzone/index.html",
-    "main.17ee1ac7.css.map": "/lawzone/static/css/main.17ee1ac7.css.map",
-    "main.1f7276e0.js.map": "/lawzone/static/js/main.1f7276e0.js.map"
+    "main.a1cee367.css.map": "/lawzone/static/css/main.a1cee367.css.map",
+    "main.989adc01.js.map": "/lawzone/static/js/main.989adc01.js.map"
   },
   "entrypoints": [
-    "static/css/main.17ee1ac7.css",
-    "static/js/main.1f7276e0.js"
+    "static/css/main.a1cee367.css",
+    "static/js/main.989adc01.js"
   ]
 }
