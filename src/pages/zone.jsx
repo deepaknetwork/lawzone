@@ -2,15 +2,22 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { Col, Row } from "react-bootstrap"
 import { useNavigate, useParams } from "react-router-dom"
-
+import Notification from './notification.jsx';
 export default function Zone(){
     var[laws,setlaws]=useState([])
     var {pathvariable}=useParams()
+    var[head,sethead]=useState(pathvariable)
     const navigate=useNavigate()
     const [loading, setLoading] = useState(true);
+    const [showNotification, setShowNotification] = useState(false);
+
+    const handleNotificationClose = () => {
+      setShowNotification(false);
+    };
+  
     useEffect(()=>{
         if (!localStorage.getItem("LAWZONE_role")) {
-            navigate("/login")
+            navigate("/lawzone/login")
         }else{
             if(pathvariable=="auto"){
                 async function zone(){
@@ -24,7 +31,14 @@ export default function Zone(){
                             }
                         })
                         .then(res=>{setlaws(res.data)
-                        alert(res.data)})
+                        if(res.data.length>0){
+                            var da=res.data
+                            sethead(da[0].zone.toString().replaceAll("_"," ").toUpperCase())
+                            setShowNotification(true)
+                        }else{
+                            sethead("unfound zone")
+                        }
+                        })
                         setLoading(false);
                         
                     
@@ -42,13 +56,15 @@ export default function Zone(){
                 }
             })
             .then(res=>{setlaws(res.data)
-            setLoading(false)})
+            setLoading(false)
+            setShowNotification(true)})
+           
             
             }
         }
     },[])
 function back(){
-    navigate("/home")
+    navigate("/lawzone/home")
 }
 return(
     <div>
@@ -56,7 +72,7 @@ return(
         <div className=" container-fluid zone_con_1" >
                 <Row className="row-h">
                     <Col xs={1} lg={1} className="col-c"><button className="btn btn-primary back" onClick={back}>back</button></Col>
-                    <Col xs={11} lg={11} className="col-c"><span className="zone_title">{pathvariable.toString().replaceAll("_"," ").toUpperCase()}</span></Col>
+                    <Col xs={11} lg={11} className="col-c"><span className="zone_title">{head.toString().replaceAll("_"," ").toUpperCase()}</span></Col>
                 </Row>
              </div>
              <div className=" container-fluid zone_con_2">
@@ -75,6 +91,12 @@ return(
 
             )
         })}
+         {showNotification && (
+        <Notification
+          message="Here, the laws mentioned above are not accurate!"
+          onClose={handleNotificationClose}
+        />
+      )}
 
              </div>
         

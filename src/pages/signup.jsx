@@ -11,7 +11,7 @@ export default function Signup(){
     const [loading, setLoading] = useState(false);
     useEffect(()=>{
         if (localStorage.getItem("LAWZONE_role")) {
-            navigate("/home")
+            navigate("/lawzone/home")
         }
     },[])
     const fetchData = async () => {
@@ -26,7 +26,7 @@ export default function Signup(){
           );
           alert(response.data)
           if(response.data=="user signed up"){
-            navigate('/login')
+            navigate('/lawzone/login')
           }else{
             setLoading(false);
           }
@@ -61,7 +61,7 @@ export default function Signup(){
                 <Col xs={10} lg={5}><button className='login_btn btn btn-primary' onClick={login}>SIGNUP</button></Col>
             </Row>
             <Row className='input_row'>
-                <Col className='login_col'><Link to={"/login"}>already have an account</Link></Col>
+                <Col className='login_col'><Link to={"/lawzone/login"}>already have an account</Link></Col>
             </Row>
             {loading && <div className="overlay"></div>}
         </Container>

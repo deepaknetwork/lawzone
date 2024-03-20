@@ -163,3 +163,46 @@ font-size: 1.1em;
   justify-content: center;
   align-items: center;
 }
+
+
+/* Notification.css */
+.notification {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.close-btn {
+  background-color: transparent;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+@keyframes colorChange {
+  0% {
+    color: black; /* Start with black */
+  }
+  35% {
+    color: red; /* Change to red */
+  }
+  80% {
+    color: black; /* Change back to black */
+  }
+  100% {
+    color: red; /* Change back to black */
+  }
+
+}
+
+.text {
+  animation: colorChange 2s infinite alternate; /* Animation properties */
+}

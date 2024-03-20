@@ -11,7 +11,7 @@ export default function Login(){
 
     useEffect(()=>{
         if (localStorage.getItem("LAWZONE_role")) {
-            navigate("/home")
+            navigate("/lawzone/home")
         }
     },[])
     const fetchData = async () => {
@@ -29,7 +29,7 @@ export default function Login(){
           localStorage.setItem("LAWZONE_password",password.current)
           localStorage.setItem("LAWZONE_role",response.data)
           alert("login success")
-          navigate('/home')
+          navigate('/lawzone/home')
 
         } catch (error) {
           alert("no user")
@@ -62,7 +62,7 @@ export default function Login(){
                 <Col xs={10} lg={5}><button className='login_btn btn btn-primary' onClick={login}>LOGIN</button></Col>
             </Row>
             <Row className='input_row'>
-                <Col className='login_col'><Link to={"/signup"}>create an account</Link></Col>
+                <Col className='login_col'><Link to={"/lawzone/signup"}>create an account</Link></Col>
             </Row>
             {loading && <div className="overlay"></div>}
         </Container>

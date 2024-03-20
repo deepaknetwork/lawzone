@@ -9,12 +9,12 @@ function App() {
   return (
     <BrowserRouter>
     <Routes>
-      <Route path="/" element={<Login/>}/>
-      <Route path="/login" element={<Login/>}/>
-      <Route path="/signup" element={<Signup/>}/>
-      <Route path="/home" element={<Home/>}/>
-      <Route path="*" element={<Login/>}/>
-      <Route path="/zone/:pathvariable" element={<Zone/>}/>
+      <Route path="/lawzone" element={<Login/>}/>
+      <Route path="/lawzone/login" element={<Login/>}/>
+      <Route path="/lawzone/signup" element={<Signup/>}/>
+      <Route path="/lawzone/home" element={<Home/>}/>
+      <Route path="/lawzone/*" element={<Login/>}/>
+      <Route path="/lawzone/zone/:pathvariable" element={<Zone/>}/>
     </Routes>
     </BrowserRouter>
   );
