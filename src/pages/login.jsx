@@ -17,7 +17,7 @@ export default function Login(){
     const fetchData = async () => {
         try {
           const response = await axios.get(
-            'https://springboot-law.onrender.com/login',
+            'http://localhost:8080/login',
             {
               auth: {
                 username: username.current,

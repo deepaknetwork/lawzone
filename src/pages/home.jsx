@@ -12,7 +12,8 @@ export default function Home(){
         if (!localStorage.getItem("LAWZONE_role")) {
             navigate("/lawzone/login")
         }else{
-            axios.get("https://springboot-law.onrender.com/zone",
+            // axios.get("https://springboot-law.onrender.com/zone",
+            axios.get("http://localhost:8080/zone",
             {auth:{
                 username:localStorage.getItem("LAWZONE_username"),
                 password:localStorage.getItem("LAWZONE_password")

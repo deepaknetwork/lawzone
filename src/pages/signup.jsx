@@ -17,7 +17,7 @@ export default function Signup(){
     const fetchData = async () => {
         try {
           const response = await axios.post(
-            'https://springboot-law.onrender.com/signup',
+            'http://localhost:8080/signup',
             {
                 name: username.current,
                 password: password.current

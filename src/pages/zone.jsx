@@ -24,7 +24,7 @@ export default function Zone(){
                     await navigator.geolocation.getCurrentPosition(async function(position) {
                         const latitude = position.coords.latitude;
                         const longitude = position.coords.longitude;
-                        await axios.post("https://springboot-law.onrender.com/zone",{lat:latitude,lon:longitude},{
+                        await axios.post("http://localhost:8080/zone",{lat:latitude,lon:longitude},{
                             auth:{
                                 username:localStorage.getItem("LAWZONE_username"),
                                 password:localStorage.getItem("LAWZONE_password")
@@ -48,7 +48,7 @@ export default function Zone(){
                  zone()
              
             }else{
-                axios.get("https://springboot-law.onrender.com/zone/"+pathvariable,
+                axios.get("http://localhost:8080/zone/"+pathvariable,
             {
                 auth:{
                     username:localStorage.getItem("LAWZONE_username"),
